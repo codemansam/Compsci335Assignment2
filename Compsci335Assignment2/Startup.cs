@@ -26,8 +26,9 @@ namespace Compsci335Assignment2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            var connectionString = Configuration.GetConnectionString("WebAPIConnection");
             services.AddDbContext<WebAPIDBContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("WebAPIConnection")));
+                options.UseSqlite(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,7 +8,8 @@ namespace Compsci335Assignment2.Models
 {
     public class Order
     {
-        [Key] public int Id { get; set; }
+        [Key] 
+        public int Id { get; set; }
         public string UserName { get; set; }
         public int ProductId { get;  set; }
         public int Quantity { get; set; }

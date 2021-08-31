@@ -8,7 +8,7 @@ namespace Compsci335Assignment2.Models
 {
     public class Users
     {
-        [Key] public string UserName { get; set; }
+        public string UserName { get; set; }
         [Required] public string Password { get; set; }
         public string Address { get; set; }
     }

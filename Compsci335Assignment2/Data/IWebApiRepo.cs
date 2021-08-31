@@ -11,6 +11,10 @@ namespace Compsci335Assignment2.Data
 // Return status code "200 OK" Response message "User successfully registered."
 //The “Ok” method will set the status code of the HTTP response to 200. In order to show a return message, e.g.,
 //“User successfully registered.”, you can pass the return message as a parameter to the “Ok” method, e.g., Ok(“User successfully registered.”).
+//
+//  Could be useful
+//
+// var log = DB.EmployeeLogins.Where(x => x.Email.Equals(login.Email) && x.Password.Equals(login.Password)).FirstOrDefault();
 
 
 // Endpoint 2: Get the version of the Web api.  This endpoint can only be accessed by registered users

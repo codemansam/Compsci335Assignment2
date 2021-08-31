@@ -14,7 +14,8 @@ namespace Compsci335Assignment2.Data
         {
             _dbContext = dbContext;
         }
-        public User Register(User user)
+        // so need to take user handed in.  See if it exists in the database.  So should
+        public User Register(User user) //actual method implemented here
         {
             throw new NotImplementedException();
         }

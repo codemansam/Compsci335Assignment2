@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Compsci335Assignment2.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Compsci335Assignment2
 {
@@ -24,6 +26,8 @@ namespace Compsci335Assignment2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddDbContext<WebAPIDBContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("WebAPIConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

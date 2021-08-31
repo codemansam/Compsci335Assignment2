@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Compsci335Assignment2.Models
 {
-    public class Users
+    public class User
     {
         public string UserName { get; set; }
         [Required] public string Password { get; set; }

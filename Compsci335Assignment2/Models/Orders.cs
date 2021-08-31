@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Compsci335Assignment2.Models
 {
-    public class Orders
+    public class Order
     {
         [Key] public int Id { get; set; }
         public string UserName { get; set; }

@@ -25,10 +25,11 @@ namespace Compsci335Assignment2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddControllers();
             var connectionString = Configuration.GetConnectionString("WebAPIConnection");
             services.AddDbContext<WebAPIDBContext>(options =>
                 options.UseSqlite(connectionString));
+            services.AddScoped<IWebApiRepo, DbWebApiRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +55,7 @@ namespace Compsci335Assignment2
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

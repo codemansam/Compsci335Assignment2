@@ -14,10 +14,24 @@ namespace Compsci335Assignment2.Data
         {
             _dbContext = dbContext;
         }
-        // so need to take user handed in.  See if it exists in the database.  So should
-        public User Register(User user) //actual method implemented here
+
+        public User GetUser(string userName)
         {
-            throw new NotImplementedException();
+            var result = _dbContext.Users.FirstOrDefault(x => x.UserName == userName);
+            return result;
+        }
+
+        public void AddUser(User user)
+        {
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            var result = _dbContext.Users.ToList();
+            return result;
+
         }
     }
 }

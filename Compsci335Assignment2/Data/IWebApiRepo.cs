@@ -34,7 +34,9 @@ namespace Compsci335Assignment2.Data
 {
     public interface IWebApiRepo
     {
-        User Register(User user);
+        User GetUser(string userName);
+        void AddUser(User user);
+        IEnumerable<User> GetAllUsers();
     }
 }
  

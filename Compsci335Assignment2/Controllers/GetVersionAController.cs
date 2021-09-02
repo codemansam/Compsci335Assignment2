@@ -7,6 +7,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Compsci335Assignment2.Data;
+using Compsci335Assignment2.Models;
 
 namespace Compsci335Assignment2.Controllers
 {
@@ -20,9 +21,9 @@ namespace Compsci335Assignment2.Controllers
         {
             _webApiRepo = webApiRepo;
         }
-
+        
         [HttpPost]
-        public IActionResult ValidLogin(UserName, Password)
+        public IActionResult ValidLogin()
         {
             return Ok();
 

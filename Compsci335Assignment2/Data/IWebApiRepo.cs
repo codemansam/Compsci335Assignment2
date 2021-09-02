@@ -38,5 +38,10 @@ namespace Compsci335Assignment2.Data
         void AddUser(User user);
         IEnumerable<User> GetAllUsers();
     }
+
+    public interface IAuthRepo
+    {
+        public bool ValidLogin(string userName, string password);
+    }
 }
  

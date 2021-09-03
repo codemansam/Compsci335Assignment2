@@ -13,7 +13,8 @@ namespace Compsci335Assignment2.Handler
     public class MyAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IWebApiRepo _repo;
-        public MyAuthHandler(DbWebApiRepo repository,
+        public MyAuthHandler(
+            IWebApiRepo repository,  // We need this reference to the database.  The remaining parameters we don't do anything with but are necessary
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger, 
             UrlEncoder encoder, 
@@ -23,7 +24,7 @@ namespace Compsci335Assignment2.Handler
             _repo = repository;
         }
 
-        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             throw new NotImplementedException();
         }

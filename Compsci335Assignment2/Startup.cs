@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Compsci335Assignment2.Data;
+using Compsci335Assignment2.Handler;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 namespace Compsci335Assignment2
@@ -30,6 +32,12 @@ namespace Compsci335Assignment2
             services.AddDbContext<WebAPIDBContext>(options =>
                 options.UseSqlite(connectionString));
             services.AddScoped<IWebApiRepo, DbWebApiRepo>();
+            services.AddAuthentication()
+                .AddScheme<AuthenticationSchemeOptions, MyAuthHandler>("MyAuthentication", null);
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("UserOnly", policy => policy.RequireClaim("userName"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +58,8 @@ namespace Compsci335Assignment2
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -53,5 +53,14 @@ namespace Compsci335Assignment2.Data
             o.Quantity = quantity;
             _dbContext.Orders.Add(o);
         }
+
+        public void OrderOne(string name, int productId)
+        {
+            Order o = new Order();
+            o.UserName = name;
+            o.ProductId = productId;
+            o.Quantity = 1;
+            _dbContext.Orders.Add(o);
+        }
     }
 }

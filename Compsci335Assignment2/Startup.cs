@@ -33,10 +33,10 @@ namespace Compsci335Assignment2
                 options.UseSqlite(connectionString));
             services.AddScoped<IWebApiRepo, DbWebApiRepo>();
             services.AddAuthentication()
-                .AddScheme<AuthenticationSchemeOptions, MyAuthHandler>("MyAuthentication", null);
+                .AddScheme<AuthenticationSchemeOptions, MyAuthHandler>("MyAuthentication", null); // we can use "MyAuthentication to refer to the scheme
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("UserOnly", policy => policy.RequireClaim("userName"));
+                options.AddPolicy("UserOnly", policy => policy.RequireClaim("userName")); // We can use "userName" to refer to this authorization policy
             });
         }
 
@@ -59,9 +59,9 @@ namespace Compsci335Assignment2
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            app.UseAuthentication(); // We add these to the pipeline so that it is used
 
-            app.UseAuthorization();
+            app.UseAuthorization(); // and based on authentication give authority to certain methods
 
             app.UseEndpoints(endpoints =>
             {

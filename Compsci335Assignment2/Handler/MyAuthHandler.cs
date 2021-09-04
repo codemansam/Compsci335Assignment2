@@ -18,7 +18,7 @@ namespace Compsci335Assignment2.Handler
     {
         private readonly IWebApiRepo _repo;
         public MyAuthHandler(
-            IWebApiRepo repository,  // We need this reference to the database.  The remaining parameters we don't do anything with but are necessary
+            IWebApiRepo repository,  // We need to add this reference to the database.  The remaining parameters we don't do anything with but are necessary
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger, 
             UrlEncoder encoder, 

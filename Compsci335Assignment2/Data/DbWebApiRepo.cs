@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Compsci335Assignment2.Models;
 using Microsoft.AspNetCore.Http.Headers;
@@ -42,6 +43,15 @@ namespace Compsci335Assignment2.Data
             if (u == null)
                 return false;
             return true;
+        }
+
+        public void Order(string name, int productId, int quantity)
+        {
+            Order o = new Order();
+            o.UserName = name;
+            o.ProductId = productId;
+            o.Quantity = quantity;
+            _dbContext.Orders.Add(o);
         }
     }
 }

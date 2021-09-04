@@ -38,8 +38,6 @@ namespace Compsci335Assignment2.Data
 
         public bool ValidLogin(string userName, string password)
         {
-            // assume here the controller has called the method and handed in the username and password
-            // want to iterate through
             User u = _dbContext.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
             if (u == null)
                 return false;

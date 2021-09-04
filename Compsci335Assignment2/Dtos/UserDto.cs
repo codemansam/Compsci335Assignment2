@@ -13,4 +13,3 @@ namespace Compsci335Assignment2.Dtos
         public string Password { get; set; }
     }
 }
-

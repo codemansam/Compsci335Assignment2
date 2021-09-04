@@ -24,7 +24,7 @@ namespace Compsci335Assignment2.Controllers
 
         [Authorize(AuthenticationSchemes = "MyAuthentication")]
         [Authorize(Policy = "UserOnly")]
-        [HttpGet("ValidLogin")]
+        [HttpGet]
 
         public IActionResult GetVersion()
         {

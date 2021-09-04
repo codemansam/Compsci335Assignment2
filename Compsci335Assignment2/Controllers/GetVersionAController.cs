@@ -30,7 +30,5 @@ namespace Compsci335Assignment2.Controllers
         {
             return new OkObjectResult("v1");
         }
-
-
     }
 }

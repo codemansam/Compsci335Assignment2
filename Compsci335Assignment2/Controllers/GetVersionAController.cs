@@ -25,10 +25,12 @@ namespace Compsci335Assignment2.Controllers
         [Authorize(AuthenticationSchemes = "MyAuthentication")]
         [Authorize(Policy = "UserOnly")]
         [HttpGet("ValidLogin")]
-        public ActionResult<VersionDto> GetVersion()
+
+        public IActionResult GetVersion()
         {
-            
+            return new OkObjectResult("v1");
         }
-        
+
+
     }
 }

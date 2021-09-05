@@ -45,13 +45,15 @@ namespace Compsci335Assignment2.Data
             return true;
         }
 
-        public void Order(string name, int productId, int quantity)
+        public Order ProductOrder(string name, int productId, int quantity)
         {
             Order o = new Order();
             o.UserName = name;
             o.ProductId = productId;
             o.Quantity = quantity;
             _dbContext.Orders.Add(o);
+            _dbContext.SaveChanges();
+            return o;
         }
 
         public void OrderOne(string name, int productId)
@@ -61,6 +63,7 @@ namespace Compsci335Assignment2.Data
             o.ProductId = productId;
             o.Quantity = 1;
             _dbContext.Orders.Add(o);
+            _dbContext.SaveChanges();
         }
     }
 }

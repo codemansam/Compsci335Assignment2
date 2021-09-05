@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Compsci335Assignment2.Data;
+using Compsci335Assignment2.Dtos;
+using Compsci335Assignment2.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Compsci335Assignment2.Controllers
@@ -27,7 +29,10 @@ namespace Compsci335Assignment2.Controllers
         [HttpPost] 
         public IActionResult Order([FromHeader]string UserName, [FromHeader]int ProductId, [FromHeader]int Quantity)
         {
-            return Ok();
+            // Order result =_webApiRepo.Order(UserName, ProductId, Quantity);
+            Order order = _webApiRepo.ProductOrder(UserName, ProductId, Quantity);
+
+            return new OkObjectResult(order);
         }
     }
 }

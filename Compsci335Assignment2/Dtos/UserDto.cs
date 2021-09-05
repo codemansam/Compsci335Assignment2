@@ -10,6 +10,7 @@ namespace Compsci335Assignment2.Dtos
     {
         public int Id { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 }

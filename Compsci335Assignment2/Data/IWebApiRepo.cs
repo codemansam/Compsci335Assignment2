@@ -19,7 +19,8 @@ namespace Compsci335Assignment2.Data
         void AddUser(User user);
         IEnumerable<User> GetAllUsers();
         public bool ValidLogin(string userName, string password);
-        void Order(string name, int productId, int quantity);
+        // void Order(string name, int productId, int quantity);
+        public Order ProductOrder(string name, int productId, int quantity);
         void OrderOne(string name, int productId);
     }
 }

@@ -9,9 +9,9 @@ namespace Compsci335Assignment2.Models
     public class Order
     {
         [Key] 
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public int ProductId { get;  set; }
-        public int Quantity { get; set; }
+        public int id { get; set; }
+        public string userName { get; set; }
+        public int productId { get;  set; }
+        public int quantity { get; set; }
     }
 }

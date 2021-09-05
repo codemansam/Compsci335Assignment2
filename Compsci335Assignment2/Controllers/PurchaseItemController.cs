@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Compsci335Assignment2.Data;
 using Compsci335Assignment2.Dtos;
@@ -27,11 +28,13 @@ namespace Compsci335Assignment2.Controllers
         [Authorize(AuthenticationSchemes = "MyAuthentication")]
         [Authorize(Policy = "UserOnly")]
         [HttpPost] 
-        public IActionResult Order([FromHeader]string UserName, [FromHeader]int ProductId, [FromHeader]int Quantity)
+        public IActionResult Order(OrderDto request)
         {
-            // Order result =_webApiRepo.Order(UserName, ProductId, Quantity);
-            Order order = _webApiRepo.ProductOrder(UserName, ProductId, Quantity);
+            var claims = Request.HttpContext.User.Identities.First().Claims.ToList();
 
+            var username = claims.FirstOrDefault(x => x.Type.Equals("userName", StringComparison.OrdinalIgnoreCase))?.Value;
+            
+            Order order = _webApiRepo.ProductOrder(username, request.ProductId, request.Quantity);
             return new OkObjectResult(order);
         }
     }

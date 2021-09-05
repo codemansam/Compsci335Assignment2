@@ -48,20 +48,21 @@ namespace Compsci335Assignment2.Data
         public Order ProductOrder(string name, int productId, int quantity)
         {
             Order o = new Order();
-            o.UserName = name;
-            o.ProductId = productId;
-            o.Quantity = quantity;
-            _dbContext.Orders.Add(o);
+            o.userName = name;
+            o.productId = productId;
+            o.quantity = quantity;
+            Console.WriteLine(o);
+             var result = _dbContext.Orders.Add(o);
             _dbContext.SaveChanges();
-            return o;
+            return result.Entity;
         }
 
         public void OrderOne(string name, int productId)
         {
             Order o = new Order();
-            o.UserName = name;
-            o.ProductId = productId;
-            o.Quantity = 1;
+            o.userName = name;
+            o.productId = productId;
+            o.quantity = 1;
             _dbContext.Orders.Add(o);
             _dbContext.SaveChanges();
         }

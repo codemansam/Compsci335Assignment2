@@ -21,7 +21,7 @@ namespace Compsci335Assignment2.Data
         public bool ValidLogin(string userName, string password);
         // void Order(string name, int productId, int quantity);
         public Order ProductOrder(string name, int productId, int quantity);
-        void OrderOne(string name, int productId);
+        public Order OrderOne(string name, int productId);
     }
 }
  

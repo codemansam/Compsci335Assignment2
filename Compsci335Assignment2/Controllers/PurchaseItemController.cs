@@ -31,10 +31,9 @@ namespace Compsci335Assignment2.Controllers
         public IActionResult Order(OrderDto request)
         {
             var claims = Request.HttpContext.User.Identities.First().Claims.ToList();
-
             var username = claims.FirstOrDefault(x => x.Type.Equals("userName", StringComparison.OrdinalIgnoreCase))?.Value;
-            
-            Order order = _webApiRepo.ProductOrder(username, request.ProductId, request.Quantity);
+
+            Order order = _webApiRepo.ProductOrder(username,request.ProductId, request.Quantity);
             return new OkObjectResult(order);
         }
     }

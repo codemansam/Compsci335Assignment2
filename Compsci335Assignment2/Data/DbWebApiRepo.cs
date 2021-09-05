@@ -57,7 +57,7 @@ namespace Compsci335Assignment2.Data
             return result.Entity;
         }
 
-        public void OrderOne(string name, int productId)
+        public Order OrderOne(string name, int productId)
         {
             Order o = new Order();
             o.userName = name;
@@ -65,6 +65,7 @@ namespace Compsci335Assignment2.Data
             o.quantity = 1;
             _dbContext.Orders.Add(o);
             _dbContext.SaveChanges();
+            return (o);
         }
     }
 }

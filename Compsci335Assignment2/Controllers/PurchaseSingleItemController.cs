@@ -22,8 +22,8 @@ namespace Compsci335Assignment2.Controllers
 
         [Authorize(AuthenticationSchemes = "MyAuthentication")]
         [Authorize(Policy = "UserOnly")]
-        [HttpPost]
-        public IActionResult OrderOne([FromHeader] string UserName, [FromHeader] int ProductId)
+        [HttpGet, Route("{id}")]
+        public IActionResult OrderOne([FromHeader] string UserName, [FromHeader] int id)
         {
             return Ok();
         }

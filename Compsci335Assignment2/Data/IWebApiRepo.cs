@@ -20,6 +20,7 @@ namespace Compsci335Assignment2.Data
         IEnumerable<User> GetAllUsers();
         public bool ValidLogin(string userName, string password);
         void Order(string name, int productId, int quantity);
+        void OrderOne(string name, int productId);
     }
 }
  
